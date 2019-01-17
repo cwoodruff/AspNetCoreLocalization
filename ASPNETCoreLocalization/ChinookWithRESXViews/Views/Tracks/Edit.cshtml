@@ -1,0 +1,69 @@
+﻿@model ChinookWithRESXViews.Models.Chinook.Track
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Edit</h1>
+
+<h4>Track</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="TrackId" />
+            <div class="form-group">
+                <label asp-for="Name" class="control-label"></label>
+                <input asp-for="Name" class="form-control" />
+                <span asp-validation-for="Name" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="AlbumId" class="control-label"></label>
+                <select asp-for="AlbumId" class="form-control" asp-items="ViewBag.AlbumId"></select>
+                <span asp-validation-for="AlbumId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="MediaTypeId" class="control-label"></label>
+                <select asp-for="MediaTypeId" class="form-control" asp-items="ViewBag.MediaTypeId"></select>
+                <span asp-validation-for="MediaTypeId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="GenreId" class="control-label"></label>
+                <select asp-for="GenreId" class="form-control" asp-items="ViewBag.GenreId"></select>
+                <span asp-validation-for="GenreId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Composer" class="control-label"></label>
+                <input asp-for="Composer" class="form-control" />
+                <span asp-validation-for="Composer" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Milliseconds" class="control-label"></label>
+                <input asp-for="Milliseconds" class="form-control" />
+                <span asp-validation-for="Milliseconds" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Bytes" class="control-label"></label>
+                <input asp-for="Bytes" class="form-control" />
+                <span asp-validation-for="Bytes" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="UnitPrice" class="control-label"></label>
+                <input asp-for="UnitPrice" class="form-control" />
+                <span asp-validation-for="UnitPrice" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
